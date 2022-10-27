@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>AO VIVO</title>
+        <meta http-equiv="refresh" content="20">
+        <link rel="stylesheet" href="maquiagem.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function fazGet(url){
+            let request = new XMLHttpRequest()
+            request.open("GET", url, false)
+            request.send()
+            console.log("Fim")
+            return JSON.parse(request.responseText) 
+        } 
+
+        function drawChart() {
+            api = "http://sistema-premen-votacao.herokuapp.com/cliente/relatorio"
+            votos =  fazGet(api)
+            
+            var dataArray = [['Sala', 'Votos']];
+            
+            votos.forEach(element => {
+                dataArray.push([element.sala, element.votos])
+            });         
+
+            var data = google.visualization.arrayToDataTable(dataArray);
+                 
+            var options = {
+            title: 'Qual sala teve o melhor projeto, em sua opinião?'
+            };
+    
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    
+            chart.draw(data, options);
+        }
+        </script> 
+    </head>
+
+    <body>
+        
+        <div class="container">
+            <div class="col-md-12"></div>
+            <div class="titulo">
+                Votação ao vivo
+                <h6>Últimas pessoas que votaram!</h6> 
+            </div>
+            <div class="op1" id="piechart" style="width: 1300px; height: 900px;"> 
+            
+            </div>
+
+            <div class="op2"> 
+                <table id="tabela" > </table>  
+            </div>
+        </div> 
+        <script src="main.js"></script>      
+    </body> 
+</html>

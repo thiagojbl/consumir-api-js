@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Nav bar*/
+
+ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+  }
+  
+  a:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  #logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  #header {
+    box-sizing: border-box;
+    height: 120px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(100,95,95);
+background: linear-gradient(90deg, rgba(100,95,95,1) 0%, rgba(118,118,120,1) 43%, rgba(247,247,247,1) 100%);
+  }
+  
+  #menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+  }
+  
+  #menu a {
+    display: block;
+    padding: 0.5rem;
+  }
+  
+  #btn-mobile {
+    display: none;
+  }
+  
+  @media (max-width: 600px) {
+    #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 120px;
+      right: 0px;
+      background: #e7e7e7;
+      transition: 0.6s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+    #nav.active #menu {
+      height: calc(100vh - 70px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    #menu a {
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+    }
+    #hamburger {
+      border-top: 2px solid;
+      width: 20px;
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    #nav.active #hamburger {
+      border-top-color: transparent;
+    }
+    #nav.active #hamburger::before {
+      transform: rotate(135deg);
+    }
+    #nav.active #hamburger::after {
+      transform: rotate(-135deg);
+      top: -7px;
+    }
+  }
+
+  .logoPro{
+    max-width: 25%;
+  }
+
+
+/*Votação*/
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+header .main-container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-container h2{
+  padding-top: 10%;
+  margin: 0  80px 0;
+  color: black;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.main-container form{
+    padding-top: 1%;
+    margin: 0  60px 0;
+    color: black; 
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+
+
+
+.radio-buttons{ 
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.custom-radio input{
+  display: none;
+}
+
+.radio-btn{
+  margin: 10px;
+  width: 180px;
+  height: 200px;
+  border: 3px solid transparent;
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 20px #c3c3c367;
+  cursor: pointer;
+}
+
+.radio-btn > i{
+  color: #ffffff;
+  background-color: #00d4ff;
+  font-size: 20px;
+  position: absolute;
+  top: -15;
+  left: 50%;
+  transform: translateX(-50%) scale(4);
+  border-radius: 50px;
+  padding: 3px;
+  transition: 0.2s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.radio-btn .project-icon{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-btn .project-icon i{
+  color: black;
+  line-height: 80px;
+  font-size: 60px;
+}
+
+.radio-btn .project-icon h3{
+  color: black;
+  font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.custom-radio input:checked + .radio-btn{
+  border: 3px solid #00d4ff;
+}
+
+.custom-radio input:checked + .radio-btn > i{
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.h{
+    padding-top: 1%;
+    margin: 0  60px 0;
+    color: red;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 30;
+    text-align: left;
+  }
